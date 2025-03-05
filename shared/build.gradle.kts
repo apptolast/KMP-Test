@@ -25,6 +25,11 @@ kotlin {
             // put your Multiplatform dependencies here
         }
     }
+
+    compilerOptions {
+        // Common compiler options applied to all Kotlin source sets
+        freeCompilerArgs.add("-Xexpect-actual-classes")
+    }
 }
 
 android {

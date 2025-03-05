@@ -1,5 +1,6 @@
 package com.apptolast.kmptest
 
+import com.apptolast.kmptest.interfaces.version.Greeting
 import io.ktor.server.application.Application
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
