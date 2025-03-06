@@ -38,7 +38,7 @@ class HomeList : Screen {
 
                         when (item) {
                             ListItemType.Navigation -> {
-                                navigator.push(TestNavigation())
+                                navigator.push(TestNavigation(item.title))
                             }
 
                             else -> {
