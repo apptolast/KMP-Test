@@ -31,7 +31,9 @@ kotlin {
 
         androidMain.dependencies {
             implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
+
+            // Androidx
+            implementation(libs.bundles.androidx.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -40,9 +42,14 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
+
+            // Androidx
+            implementation(libs.bundles.androidx.common)
+
             implementation(projects.shared)
+
+            // Navigation - Voyager
+            implementation(libs.bundles.voyager)
         }
     }
 }
