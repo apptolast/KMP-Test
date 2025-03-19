@@ -28,7 +28,10 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navigateToNavigationFeature: (String) -> Unit = {}) {
+fun HomeScreen(
+    navigateToNavigationFeature: (String) -> Unit = {},
+    navigateToConfigFieldFeature: (String) -> Unit = {},
+) {
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -55,6 +58,7 @@ fun HomeScreen(navigateToNavigationFeature: (String) -> Unit = {}) {
             onItemClick = { item ->
                 when (item) {
                     ListItemType.Navigation -> navigateToNavigationFeature(item.title)
+                    ListItemType.ConfigField -> navigateToConfigFieldFeature(item.title)
 
                     else -> {
                         scope.launch {
@@ -120,6 +124,6 @@ fun ListItem(
 
 enum class ListItemType(val title: String) {
     Navigation(title = "Navigation"),
-    Item2(title = "Item 2"),
+    ConfigField(title = "Build Config"),
     Item3(title = "Item 3"),
 }

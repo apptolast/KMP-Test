@@ -12,17 +12,17 @@ androidx-lifecycle = "2.8.4"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
 compose = "1.7.8"
-compose-multiplatform = "1.7.0"
+compose-multiplatform = "1.8.0-alpha04"
 junit = "4.13.2"
 #koinVersion = "4.0.2"
-kotlin = "2.1.10"
+kotlin = "2.1.20-RC3"
 ktor = "3.1.1"
 ktor-server-test = "2.3.13"
 logback = "1.5.16"
+material3 = "1.8.0-alpha04"
 materialIconsExtended = "1.7.8"
 navigation-compose = "2.9.0-alpha14"
-voyager = "1.1.0-beta02"
-
+buildConfig = "5.3.5"
 
 [libraries]
 #koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinVersion" }
@@ -56,6 +56,7 @@ logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor-server-test" }
+material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "material3" }
 
 [bundles]
 
@@ -78,3 +79,4 @@ kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", versio
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+gradleBuildConfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig" }

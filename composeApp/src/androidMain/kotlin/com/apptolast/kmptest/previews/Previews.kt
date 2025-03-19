@@ -21,7 +21,7 @@ fun HomeListPreview() {
 fun ListItemPreview() {
     MaterialTheme {
         ListItem(
-            itemType = ListItemType.Item2
+            itemType = ListItemType.ConfigField
         )
     }
 }

@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -7,6 +8,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.gradleBuildConfig)
 }
 
 kotlin {
@@ -30,17 +32,22 @@ kotlin {
 
     sourceSets {
 
+//        all {
+//            languageSettings.enableLanguageFeature("ExplicitBackingFields")
+//        }
+
         androidMain.dependencies {
             implementation(compose.preview)
 
             // Androidx
             implementation(libs.bundles.androidx.android)
-            implementation(libs.androidx.lifecycle.viewmodel)
         }
         commonMain.dependencies {
+            implementation(libs.androidx.lifecycle.viewmodel)
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material3)
+//            implementation(compose.material3)
+            implementation(libs.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -89,3 +96,11 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
 }
 
+buildConfig {
+    packageName("com.apptolast.kmptest")
+    val properties = Properties()
+    properties.load(project.rootProject.file("local.properties").reader())
+    val testApiKey = properties.getProperty("TEST_API_KEY")
+
+    buildConfigField("TEST_API_KEY", testApiKey)
+}

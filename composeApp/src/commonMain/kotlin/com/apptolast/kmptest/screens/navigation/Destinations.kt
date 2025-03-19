@@ -7,3 +7,6 @@ object HomeDestination
 
 @Serializable
 data class NavigationFeatureDestination(val title: String)
+
+@Serializable
+data class ConfigFieldDestination(val title: String)
