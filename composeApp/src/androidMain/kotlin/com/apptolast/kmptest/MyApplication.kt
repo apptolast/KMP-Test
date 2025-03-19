@@ -3,10 +3,7 @@ package com.apptolast.kmptest
 import android.app.Application
 import android.content.Context
 
-//import org.koin.core.annotation.KoinExperimentalAPI
-
-//@OptIn(KoinExperimentalAPI::class)
-class MyApplication : Application()/*, KoinStartup */ {
+class MyApplication : Application() {
     lateinit var appContext: Context
         private set // Make it private to prevent external modification
 
