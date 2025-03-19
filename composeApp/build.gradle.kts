@@ -34,11 +34,16 @@ kotlin {
 
             // Androidx
             implementation(libs.bundles.androidx.android)
+            implementation(libs.androidx.lifecycle.viewmodel)
+
+            // Koin
+//            implementation(libs.koin.android)
+//            implementation(libs.koin.androidx.compose)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -46,12 +51,24 @@ kotlin {
             // Androidx
             implementation(libs.bundles.androidx.common)
 
+            implementation(libs.androidx.lifecycle.runtime.compose)
+
+            // Koin
+//            implementation(libs.koin.compose)
+//            implementation(libs.koin.compose.viewmodel)
+//            implementation(libs.koin.core)
+//            implementation(libs.koin.androidx.startup)
+
+
+
             implementation(projects.shared)
 
             // Navigation - Voyager
             implementation(libs.bundles.voyager)
         }
     }
+
+//    task("testClasses")
 }
 
 android {
@@ -82,6 +99,9 @@ android {
 }
 
 dependencies {
-    debugImplementation(compose.uiTooling)
+    debugImplementation(libs.compose.ui.tooling)
 }
+
+//El problema es que la dependencia koin-compose-viewmodel está diseñada específicamente para Android Compose. Si bien puedes usarla en el módulo androidMain, no es la dependencia correcta para usar en commonMain que tambien la estas usando.
+//viewModelOf está disponible en koin-core, pero solo funciona cuando se inyecta de manera manual a un módulo, no funciona de manera directa para asociarlo a una clase viewModel como lo quieres hacer.
 

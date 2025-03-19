@@ -16,6 +16,12 @@ dependencies {
     implementation(libs.logback)
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.netty)
+
+    // Koin for Ktor
+//    implementation(libs.koin.ktor)
+    // SLF4J Logger
+//    implementation(libs.koin.logger.slf4j)
+
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlin.test.junit)
 }

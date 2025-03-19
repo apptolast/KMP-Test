@@ -11,8 +11,10 @@ androidx-espresso-core = "3.6.1"
 androidx-lifecycle = "2.8.4"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
+compose = "1.7.8"
 compose-multiplatform = "1.7.0"
 junit = "4.13.2"
+#koinVersion = "4.0.2"
 kotlin = "2.1.10"
 ktor = "3.1.1"
 ktor-server-test = "2.3.13"
@@ -20,7 +22,19 @@ logback = "1.5.16"
 materialIconsExtended = "1.7.8"
 voyager = "1.1.0-beta02"
 
+
 [libraries]
+#koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinVersion" }
+#koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinVersion" }
+#koin-androidx-startup = { module = "io.insert-koin:koin-androidx-startup", version.ref = "koinVersion" }
+#koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinVersion" }
+#koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinVersion" }
+#koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinVersion" }
+
+#koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koinVersion" }
+
+#koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koinVersion" }
+#koin-test = { module = "io.insert-koin:koin-test", version.ref = "koinVersion" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -34,6 +48,7 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
@@ -43,7 +58,7 @@ voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", vers
 voyager-bottomSheetNavigator = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyager" }
 voyager-tabNavigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyager" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
-voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager" }
+#voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager" }
 
 [bundles]
 
@@ -63,7 +78,7 @@ voyager = [
     "voyager-bottomSheetNavigator",
     "voyager-tabNavigator",
     "voyager-transitions",
-    "voyager-koin"
+    #    "voyager-koin"
 ]
 
 [plugins]
