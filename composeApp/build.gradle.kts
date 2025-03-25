@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.gradleBuildConfig)
+    id("io.kotzilla.kotzilla-plugin")
 }
 
 kotlin {
@@ -41,9 +42,11 @@ kotlin {
 
             // Androidx
             implementation(libs.bundles.androidx.android)
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
 //            implementation(compose.material3)
@@ -52,11 +55,22 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
+
             // Androidx
             implementation(libs.bundles.androidx.common)
 
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.androidx.navigation.compose)
+
+            // Koin
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.koin.core)
+//            api(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+
+            // The Kotzilla SDK library dependency
+            implementation(libs.kotzilla.sdk)
 
             implementation(projects.shared)
         }
@@ -74,7 +88,7 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "1.0"
+        versionName = "0.1.0"
     }
     packaging {
         resources {
@@ -94,6 +108,10 @@ android {
 
 dependencies {
     debugImplementation(libs.compose.ui.tooling)
+
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
 }
 
 buildConfig {
@@ -101,6 +119,8 @@ buildConfig {
     val properties = Properties()
     properties.load(project.rootProject.file("local.properties").reader())
     val testApiKey = properties.getProperty("TEST_API_KEY")
+    val kotzillaApiKey = properties.getProperty("TEST_API_KEY")
 
     buildConfigField("TEST_API_KEY", testApiKey)
+    buildConfigField("KOTZILLA_API_KEY", kotzillaApiKey)
 }

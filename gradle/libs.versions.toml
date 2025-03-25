@@ -14,10 +14,12 @@ androidx-test-junit = "1.2.1"
 compose = "1.7.8"
 compose-multiplatform = "1.8.0-alpha04"
 junit = "4.13.2"
-#koinVersion = "4.0.2"
-kotlin = "2.1.20-RC3"
+koinVersion = "4.0.2"
+kotlin = "2.1.20"
+kotzillaVersion = "1.0.1"
 ktor = "3.1.1"
 ktor-server-test = "2.3.13"
+lifecycleViewmodelCompose = "2.8.7"
 logback = "1.5.16"
 material3 = "1.8.0-alpha04"
 materialIconsExtended = "1.7.8"
@@ -25,12 +27,16 @@ navigation-compose = "2.9.0-alpha14"
 buildConfig = "5.3.5"
 
 [libraries]
-#koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinVersion" }
+koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinVersion" }
+koin-android = { group = "io.insert-koin", name = "koin-android" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
+koin-core = { group = "io.insert-koin", name = "koin-core" }
+koin-compose = { group = "io.insert-koin", name = "koin-compose" }
+koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel" }
+
+
 #koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinVersion" }
 #koin-androidx-startup = { module = "io.insert-koin:koin-androidx-startup", version.ref = "koinVersion" }
-#koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinVersion" }
-#koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinVersion" }
-#koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinVersion" }
 #koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koinVersion" }
 #koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koinVersion" }
 #koin-test = { module = "io.insert-koin:koin-test", version.ref = "koinVersion" }
@@ -47,11 +53,16 @@ androidx-material = { group = "com.google.android.material", name = "material", 
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
 androidx-navigation-compose = { group = "org.jetbrains.androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
 
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+
+kotzilla-plugin = { group = "io.kotzilla", name = "kotzilla-plugin", version.ref = "kotzillaVersion" }
+kotzilla-sdk = { group = "io.kotzilla", name = "kotzilla-sdk", version.ref = "kotzillaVersion" }
+
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
@@ -63,6 +74,8 @@ material3 = { module = "org.jetbrains.compose.material3:material3", version.ref 
 androidx-android = [
     "androidx-activity-compose",
     "androidx-material-icons-extended",
+    "androidx-lifecycle-viewmodel-compose",
+    "koin-androidx-compose",
 ]
 
 androidx-common = [

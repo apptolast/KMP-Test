@@ -2,6 +2,9 @@ package com.apptolast.kmptest
 
 import android.app.Application
 import android.content.Context
+import com.apptolast.kmptest.di.initKoin
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 
 class MyApplication : Application() {
     lateinit var appContext: Context
@@ -18,10 +21,10 @@ class MyApplication : Application() {
         appContext = applicationContext
         instance = this // Initialize the instance here
 
-//        initKoin {
-//            androidLogger()
-//            androidContext(this@MyApplication)
-//        }
+        initKoin {
+            androidLogger()
+            androidContext(this@MyApplication)
+        }
     }
 
     companion object {

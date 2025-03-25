@@ -13,6 +13,14 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+
+//    resolutionStrategy {
+//        eachPlugin {
+//            if (requested.id.namespace == "io.kotzilla") {
+//                useModule("io.kotzilla:kotzilla-plugin:1.0.1")
+//            }
+//        }
+//    }
 }
 
 dependencyResolutionManagement {

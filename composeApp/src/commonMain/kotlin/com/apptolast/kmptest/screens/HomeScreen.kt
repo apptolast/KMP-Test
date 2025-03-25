@@ -2,6 +2,8 @@ package com.apptolast.kmptest.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -20,6 +22,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.apptolast.kmptest.interfaces.toast
 import kmp_test.composeapp.generated.resources.Res
 import kmp_test.composeapp.generated.resources.app_name
@@ -29,6 +32,7 @@ import org.jetbrains.compose.resources.stringResource
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
+    viewModel: HomeListViewModel = viewModel { HomeListViewModel() },
     navigateToNavigationFeature: (String) -> Unit = {},
     navigateToConfigFieldFeature: (String) -> Unit = {},
 ) {
@@ -53,7 +57,8 @@ fun HomeScreen(
 
         ) { paddingValues ->
         HomeContent(
-            version = "version",
+            version = viewModel.greetingText,
+//            version = "test",
             modifier = Modifier.padding(paddingValues),
             onItemClick = { item ->
                 when (item) {
@@ -78,28 +83,33 @@ fun HomeContent(
     modifier: Modifier = Modifier,
     onItemClick: (ListItemType) -> Unit = {}
 ) {
-    LazyColumn(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(16.dp)
+    Column(
+        modifier = modifier.fillMaxSize(),
     ) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .padding(16.dp)
+        ) {
 
-        items(ListItemType.entries) { item ->
-            ListItem(
-                itemType = item,
-                modifier = Modifier.padding(vertical = 8.dp),
-                onClick = {
-                    onItemClick(item)
-                }
-            )
+            items(ListItemType.entries) { item ->
+                ListItem(
+                    itemType = item,
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    onClick = {
+                        onItemClick(item)
+                    }
+                )
+            }
         }
+        Text(
+            text = version,
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.Center
+        )
     }
-    Text(
-        text = version,
-        modifier = Modifier.fillMaxWidth().padding(16.dp),
-        style = MaterialTheme.typography.bodyLarge,
-        textAlign = TextAlign.Center
-    )
 }
 
 @Composable
