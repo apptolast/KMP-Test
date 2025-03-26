@@ -34,7 +34,6 @@ koin-core = { group = "io.insert-koin", name = "koin-core" }
 koin-compose = { group = "io.insert-koin", name = "koin-compose" }
 koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel" }
 
-
 #koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinVersion" }
 #koin-androidx-startup = { module = "io.insert-koin:koin-androidx-startup", version.ref = "koinVersion" }
 #koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koinVersion" }

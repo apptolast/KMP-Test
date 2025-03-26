@@ -10,3 +10,10 @@ class HomeListViewModel : ViewModel(), KoinComponent {
 
     val greetingText = greeting.greet()
 }
+
+//class HomeListViewModel(
+//    private val greeting: Greeting
+//) : ViewModel() {
+//
+//    val greetingText = greeting.greet()
+//}

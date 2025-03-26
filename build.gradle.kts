@@ -4,10 +4,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-
         classpath(libs.kotzilla.plugin)
     }
 }
+
 plugins {
     // this is necessary to avoid the plugins to be loaded multiple times
     // in each subproject's classloader
@@ -16,8 +16,6 @@ plugins {
     alias(libs.plugins.composeMultiplatform) apply false
     alias(libs.plugins.composeCompiler) apply false
     alias(libs.plugins.kotlinSerialization) apply false
-//    alias(libs.plugins.kotzilla.plugin) apply false
-//    id("io.kotzilla") apply false
     alias(libs.plugins.kotlinJvm) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
 }

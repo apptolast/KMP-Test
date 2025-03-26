@@ -32,6 +32,7 @@ import org.jetbrains.compose.resources.stringResource
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
+//    viewModel: HomeListViewModel = koinViewModel(),
     viewModel: HomeListViewModel = viewModel { HomeListViewModel() },
     navigateToNavigationFeature: (String) -> Unit = {},
     navigateToConfigFieldFeature: (String) -> Unit = {},
