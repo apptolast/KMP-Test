@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.gradleBuildConfig)
-    id("io.kotzilla.kotzilla-plugin")
+    alias(libs.plugins.kotzilla)
 }
 
 kotlin {

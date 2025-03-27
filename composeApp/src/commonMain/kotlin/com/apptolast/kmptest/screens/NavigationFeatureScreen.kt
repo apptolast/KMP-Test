@@ -1,5 +1,6 @@
 package com.apptolast.kmptest.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -17,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -71,6 +73,14 @@ fun NavigationFeatureContent(
             style = MaterialTheme.typography.titleMedium,
         )
     }
+}
+
+@Preview
+@Composable
+fun NavigationFeatureContentPreview() {
+    NavigationFeatureContent(
+        modifier = Modifier.background(color = MaterialTheme.colorScheme.background)
+    )
 }
 
 

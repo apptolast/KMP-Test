@@ -28,11 +28,11 @@ import kmp_test.composeapp.generated.resources.Res
 import kmp_test.composeapp.generated.resources.app_name
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-//    viewModel: HomeListViewModel = koinViewModel(),
     viewModel: HomeListViewModel = viewModel { HomeListViewModel() },
     navigateToNavigationFeature: (String) -> Unit = {},
     navigateToConfigFieldFeature: (String) -> Unit = {},
@@ -59,7 +59,6 @@ fun HomeScreen(
         ) { paddingValues ->
         HomeContent(
             version = viewModel.greetingText,
-//            version = "test",
             modifier = Modifier.padding(paddingValues),
             onItemClick = { item ->
                 when (item) {
@@ -137,4 +136,16 @@ enum class ListItemType(val title: String) {
     Navigation(title = "Navigation"),
     ConfigField(title = "Build Config"),
     Item3(title = "Item 3"),
+}
+
+@Preview
+@Composable
+fun HomeScreenContentPreview() {
+    MaterialTheme {
+        HomeContent(
+            version = "Preview version",
+            onItemClick = {},
+            modifier = Modifier.background(color = MaterialTheme.colorScheme.background)
+        )
+    }
 }

@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.0"
+agp = "8.9.1"
 android-compileSdk = "35"
 android-minSdk = "26"
 android-targetSdk = "35"
@@ -12,18 +12,18 @@ androidx-lifecycle = "2.8.4"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
 compose = "1.7.8"
-compose-multiplatform = "1.8.0-alpha04"
+compose-multiplatform = "1.8.0-beta01"
 junit = "4.13.2"
-koinVersion = "4.0.2"
+koinVersion = "4.0.3"
 kotlin = "2.1.20"
 kotzillaVersion = "1.0.1"
 ktor = "3.1.1"
 ktor-server-test = "2.3.13"
 lifecycleViewmodelCompose = "2.8.7"
-logback = "1.5.16"
-material3 = "1.8.0-alpha04"
+logback = "1.5.18"
+material3 = "1.8.0-beta01"
 materialIconsExtended = "1.7.8"
-navigation-compose = "2.9.0-alpha14"
+navigation-compose = "2.9.0-alpha15"
 buildConfig = "5.3.5"
 
 [libraries]
@@ -92,3 +92,4 @@ kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 gradleBuildConfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig" }
+kotzilla = { id = "io.kotzilla.kotzilla-plugin", version.ref = "kotzillaVersion" }

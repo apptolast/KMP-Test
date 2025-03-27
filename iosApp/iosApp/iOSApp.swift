@@ -5,8 +5,6 @@ import ComposeApp
 struct iOSApp: App {
 
     init() {
-//        ComposeApp.InitKoin_IosKt.doInitKoinIos()
-//        InitKoin_iosKt.doInitKoinIos()
         KoinKt.doInitKoinIos()
     }
 
