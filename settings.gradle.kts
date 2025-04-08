@@ -10,9 +10,22 @@ pluginManagement {
                 includeGroupAndSubgroups("com.google")
             }
         }
+        // Kotzilla
+        maven {
+            name = "kotzilla"
+            url = uri("https://repository.kotzilla.io/repository/kotzilla-platform/")
+        }
         mavenCentral()
         gradlePluginPortal()
     }
+
+//    resolutionStrategy {
+//        eachPlugin {
+//            if (requested.id.namespace == "io.kotzilla") {
+//                useModule("io.kotzilla:kotzilla-plugin:1.0.1")
+//            }
+//        }
+//    }
 }
 
 dependencyResolutionManagement {
@@ -23,6 +36,11 @@ dependencyResolutionManagement {
                 includeGroupAndSubgroups("com.android")
                 includeGroupAndSubgroups("com.google")
             }
+        }
+        // Kotzilla
+        maven {
+            name = "kotzilla"
+            url = uri("https://repository.kotzilla.io/repository/kotzilla-platform/")
         }
         mavenCentral()
     }

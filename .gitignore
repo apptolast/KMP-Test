@@ -17,7 +17,6 @@ captures
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-
 # Created by https://www.toptal.com/developers/gitignore/api/intellij,git,maven,gradle,windows,macos,kotlin,swift,firebase
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij,git,maven,gradle,windows,macos,kotlin,swift,firebase
 
@@ -372,3 +371,7 @@ gradle-app.setting
 *.hprof
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,git,maven,gradle,windows,macos,kotlin,swift,firebase
+
+# kotzila
+/composeApp/src/main/assets/kotzilla.key
+/composeApp/kotzilla.json

@@ -17,3 +17,6 @@ This is a Kotlin Multiplatform project targeting Android, iOS, Server.
   too.
 
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+
+If you have issues not seeing the iOS emulators:
+https://youtrack.jetbrains.com/issue/KT-61624/Empty-execution-target-drop-down-when-xcode-has-simulators-other-than-iPhones#focus=Comments-27-11691343.0-0
