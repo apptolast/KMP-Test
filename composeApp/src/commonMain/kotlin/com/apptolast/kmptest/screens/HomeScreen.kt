@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -105,7 +106,7 @@ fun HomeContent(
         }
         Text(
             text = version,
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(16.dp).testTag("version_label"),
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center
         )
@@ -135,7 +136,7 @@ fun ListItem(
 enum class ListItemType(val title: String) {
     Navigation(title = "Navigation"),
     ConfigField(title = "Build Config"),
-    Item3(title = "Item 3"),
+    Item3(title = "Snackbar"),
 }
 
 @Preview
