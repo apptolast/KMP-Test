@@ -1,5 +1,7 @@
-
+import org.jetbrains.compose.ExperimentalComposeLibrary
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 import java.util.Properties
 
 plugins {
@@ -16,6 +18,21 @@ kotlin {
     androidTarget {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
+        }
+
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        instrumentedTestVariant {
+            sourceSetTree.set(KotlinSourceSetTree.test)
+
+            dependencies {
+                implementation(libs.test.core.ktx)
+                implementation(libs.compose.ui.test.junit4.android)
+                implementation(libs.compose.ui.test.manifest)
+
+                androidTestImplementation(libs.koin.test)
+                androidTestImplementation(libs.mockito.kotlin)
+                androidTestImplementation(libs.mockk.android) // If using MockK
+            }
         }
     }
 
@@ -73,6 +90,14 @@ kotlin {
 
             implementation(projects.shared)
         }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(kotlin("test-annotations-common"))
+            implementation(libs.assertk)
+
+            @OptIn(ExperimentalComposeLibrary::class)
+            implementation(compose.uiTest)
+        }
     }
 
 //    task("testClasses")
@@ -88,10 +113,15 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "0.1.0"
+
+//        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.apptolast.kmptest.KoinInstrumentationTestRunner"
     }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/LICENSE.md"
+            merges.add("META-INF/LICENSE-notice.md")
         }
     }
     buildTypes {
@@ -106,15 +136,23 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.runner)
+    testImplementation(libs.junit)
     debugImplementation(libs.compose.ui.tooling)
 
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+
+
 }
 
 buildConfig {
     packageName("com.apptolast.kmptest")
+
+    useJavaOutput()
+    useKotlinOutput()
+
     val properties = Properties()
     properties.load(project.rootProject.file("local.properties").reader())
     val testApiKey = properties.getProperty("TEST_API_KEY")
